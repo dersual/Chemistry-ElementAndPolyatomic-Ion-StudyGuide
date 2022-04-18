@@ -65,8 +65,8 @@ var startbutton = document.getElementById("startbutton");
 var elementQuestions = document.getElementsByClassName("chemQuestions");
 startbutton.addEventListener("click", function () {
   document.getElementById("mainFirst").style.display = "none";
-  getRandomQuestions();
-});
+ // getRandomQuestions();
+});   /*
 function getRandomQuestions() {
   //make sure elements[randomNum(40)] or ion is not undefined
   // elementQuestions[i].innerHTML need this later
@@ -106,3 +106,4 @@ function checkAnswers() {
   }
 }
 function compareAnswers(index, answer) {}
+*/
