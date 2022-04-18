@@ -5,19 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <!----Open Sans Font with weights of 300, 500, 800 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;800&display=swap"
+      rel="stylesheet"
+    />  
+     <!----Open Montserrat with weights of 400, 800 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet"> 
     <script src="script.js" defer></script>
     <title>Chemistry</title>
   </head>
   <body>
-    <div id="mainFirst">
-      <h1 class="bigTxt">Chemistry Study Guide</h1>
-      <h2>40 Elements and 16 ions</h2>
-      <h3>
-        There will be 10 randomly generated element based questions and 2
-        randomly generated ion based questions
-      </h3>
-      <button type="button" id="startbutton">Start</button>
+    <div id="topDiv"> 
+      <div id = "optionIcon"> 
+        <span></span> 
+        <span></span> 
+        <span></span>
+      </div>
     </div>
+    <div id="mainFirst">
+      <h1 class="bigTxt">Element and Ion Study Guide</h1>
+      <h2>A Maximum of 40 Elements & 16 Ions</h2>
+      <h3>
+       
+      </h3>
+      <button type="button" id="startbutton">Begin Studying</button>
+    </div>
+   <div id="mainOverlay"></div> 
+   <h1 class="bigTxt">Being reworked right now!</h1>
+   <!--    
     <form id="question&answerForm">
       <h4 class="instructions">
         Fill in the blanks, spelling (which includes capitalization) counts.
@@ -25,16 +43,18 @@
       <br />
       <p>
         Ten elements, Fill in the names of five elements and fill in the symbols
-        of another five elements. <br> 2 Ions, Fill the name of one ion and fill in the symbol with charge for another ion
+        of another five elements. <br />
+        2 Ions, Fill the name of one ion and fill in the symbol with charge for
+        another ion
       </p>
       <table>
         <tr>
-          <td class = "columnLabel">Name Of Element</td>
-          <td class = "columnLabel">Symbol Of Element</td>
+          <td class="columnLabel">Name Of Element</td>
+          <td class="columnLabel">Symbol Of Element</td>
         </tr>
         <tr>
           <td><label class="chemQuestions"></label></td>
-          <td><input type="text" /></td>     
+          <td><input type="text" /></td>
         </tr>
         <tr>
           <td><label class="chemQuestions"></label></td>
@@ -54,46 +74,43 @@
         </tr>
       </table>
       <table>
-        <tr> 
+        <tr>
           <td><input type="text" /></td>
           <td><label class="chemQuestions"></label></td>
-          
         </tr>
-        <tr> 
+        <tr>
           <td><input type="text" /></td>
           <td><label class="chemQuestions"></label></td>
-          
         </tr>
-        <tr> 
+        <tr>
           <td><input type="text" /></td>
           <td><label class="chemQuestions"></label></td>
-          
         </tr>
-        <tr> 
+        <tr>
           <td><input type="text" /></td>
           <td><label class="chemQuestions"></label></td>
-          
         </tr>
-        <tr> 
+        <tr>
           <td><input type="text" /></td>
           <td><label class="chemQuestions"></label></td>
-          
         </tr>
       </table>
-      <table> 
+      <table>
         <tr>
-          <td class = "columnLabel">Name Of Ion</td>
-          <td class = "columnLabel">Symbol Of Ion</td>
+          <td class="columnLabel">Name Of Ion</td>
+          <td class="columnLabel">Symbol Of Ion</td>
         </tr>
         <tr>
           <td><label class="chemQuestions"></label></td>
           <td><input type="text" /></td>
         </tr>
-        <tr> 
+        <tr>
           <td><input type="text" /></td>
           <td><label class="chemQuestions"></label></td>
         </tr>
       </table>
-    </form>
+      <button class="submitButton" type="button">Submit</button>
+    </form> 
+    --->
   </body>
 </html>
