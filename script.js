@@ -61,26 +61,48 @@ var ions = [
 const randomNum = function getRandomNum(max) {
   return Math.floor(Math.random() * max);
 };
-var button = document.getElementById("startbutton");
+var startbutton = document.getElementById("startbutton");
 var elementQuestions = document.getElementsByClassName("chemQuestions");
-button.addEventListener("click", function () {
-  document.getElementById("question&answerForm").style.display = "block";
+startbutton.addEventListener("click", function () {
   document.getElementById("mainFirst").style.display = "none";
+  getRandomQuestions();
 });
-
-for (var i = 0; i < elementQuestions.length; i++) { 
-   
-  if (i < 5) {
-    elementQuestions[i].innerHTML = elements[randomNum(39)][0];
-  } else if (i >= 5 && i < 10) {
-    elementQuestions[i].innerHTML = elements[randomNum(39)][1];
-  } 
- 
-  else if (i === 10) {
-    elementQuestions[i].innerHTML = ions[randomNum(16)][0];
-  }  
-   else {
-    elementQuestions[i].innerHTML = ions[randomNum(16)][1];
-  } 
- 
+function getRandomQuestions() {
+  //make sure elements[randomNum(40)] or ion is not undefined
+  // elementQuestions[i].innerHTML need this later
+  for (var i = 0; i < elementQuestions.length; i++) {
+    var element = elements[randomNum(40)];
+    var ion = ions[randomNum(16)];
+    if (element !== undefined && ion !== undefined) {
+      randomizeElementAndIons(element, ion, i);
+    } else {
+      checkQuestionsIfDefined(i);
+    }
+  }
 }
+function checkQuestionsIfDefined(index) {
+  if (elementQuestions[index].innerHTML == "") {
+    getRandomQuestions();
+  }
+}
+function randomizeElementAndIons(element, ion, index) {
+  if (index < 5) {
+    elementQuestions[index].innerHTML = element[0];
+  } else if (index >= 5 && index < 10) {
+    elementQuestions[index].innerHTML = element[1];
+  } else if (index === 10) {
+    elementQuestions[index].innerHTML = ion[0];
+  } else {
+    elementQuestions[index].innerHTML = ion[1];
+  }
+}
+function checkAnswers() {
+  for (var i = 0; i < elementQuestions.length; i++) {
+    if (i < 5) {
+    } else if (i >= 5 && i < 10) {
+    } else if (i === 10) {
+    } else {
+    }
+  }
+}
+function compareAnswers(index, answer) {}
