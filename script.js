@@ -57,14 +57,20 @@ var ions = [
   ["Oxalate", "C2O4 -2"],
   ["Sulfate", "SO4 -2"],
   ["Phosphate", "PO4 -3"],
-];
+]; 
+var ionQuestions = 16 
+var elementQuestions = 40 
+var option = document.getElementById("optionIcon")   
+var questionDisplay = document.getElementById("numOfQuestions") 
+questionDisplay.innerHTML = "Element Questions: " + elementQuestions  + " Ion Questions: " + ionQuestions 
 const randomNum = function getRandomNum(max) {
   return Math.floor(Math.random() * max);
 };
 var startbutton = document.getElementById("startbutton");
 var elementQuestions = document.getElementsByClassName("chemQuestions");
 startbutton.addEventListener("click", function () {
-  document.getElementById("mainFirst").style.display = "none";
+  document.getElementById("mainFirst").style.display = "none"; 
+  startbutton.style.display = "none"; 
  // getRandomQuestions();
 });   /*
 function getRandomQuestions() {

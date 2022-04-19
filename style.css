@@ -19,13 +19,38 @@ body {
   min-height: 35px;
   top: 0;
   left: 0;
-  position: absolute;
+  position: absolute; 
+  animation: 1.5s ease-out 0s 1 slideFromTop;  
+}   
+#topDiv > * { 
+  float:left;  
+  margin-left:30px;
+} 
+#topDiv > :first-child { 
+  margin-left: 0 
 }
+#topDiv > p { 
+  font-family: "Open Sans",  sans-serif; 
+  font-size: 20px;  
+  display:block; 
+  color: #000000; 
+  top: 2px; 
+  position:relative; 
+
+} 
+#optionIcon > span {
+  background-color: #ff0;
+  height: 2px;
+  width: 30px;
+  display: block;
+  margin-top: 6px;
+  margin-left: 10px;
+} 
 #mainFirst {
   position: absolute;
   top: 5%;
+  animation: 1.5s ease 0s 1 slideFromLeft;
   left: 50%;
-  /* transform: translate(-50%,-50%); */
   transform: translateX(-50%);
   text-align: center;
   background-color: #00b469;
@@ -33,25 +58,60 @@ body {
   height: 60%;
   font-family: "Open Sans", "Montserrat", sans-serif;
 }
-@media screen and (max-width: 750px) {
+/* Add all Responsive stuff here*/
+@media screen and (max-width: 1040px) {
   #mainFirst {
-    width: 100%;
-    height: 60%;
+    height: 65%;
+  }
+  #startbutton {
+    margin-top: 80px;
+  }
+  .bigTxt {
+    font-size: 5em;
+  }
+}
+@media screen and (max-width: 800px) {
+  #mainFirst {
+    height: 75%;
+  }
+  .bigTxt {
+    font-size: 3.5em;
+  }
+}
+@media screen and (max-width: 500px) {
+}
+@keyframes slideFromLeft {
+  from {
+    left: 0%;
+    transform: translateX(-100%);
+  }
+  to {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@keyframes slideFromTop {
+  from { 
+top:-45px;
+  } 
+  top{ 
+    top:0;
   }
 }
 #mainFirst > * {
   margin-top: 1.5rem;
 }
 #startbutton {
- /* top: 160px; */  
-  margin-top: 90px;
-  position: relative;
+  display: block;
+  position: absolute;
   width: 210px;
   height: 70px;
-  font-size: 20px; 
- 
+  font-size: 20px;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 100px;
 }
- #mainOverlay {
+#mainOverlay {
   min-width: 100%;
   background-color: #76d4a0;
   min-height: 100%;
@@ -63,23 +123,23 @@ body {
   z-index: -1;
   background-image: url("graph-paper-photo3.jpg");
   background-repeat: repeat;
-   box-shadow: inset 0 0 0 5000px #00e78787; 
-}  
+  box-shadow: inset 0 0 0 5000px #00e78787;
+}
 .bigTxt,
-h2, .placeHolder {
+h2,
+.placeHolder {
   font-weight: 800;
-  font-family: "Montserrat", sans-serif; 
-  font-size:2em
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
 }
 .bigTxt {
-  font-size: 5em;
+  font-size: 5.5em;
 }
-h3 {
+h3{
   color: #a1e09d;
   font-weight: 500;
   font-family: "Open Sans", sans-serif;
-  font-size: 1.25em; 
-
+  font-size: 1.25em;
 }
 button {
   /*background-color: #00b40f;  
@@ -90,7 +150,7 @@ button {
   display: inline-block;
   cursor: pointer;
   color: #00a5b4;
-  font-family:  "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 22px;
   padding: 16px 31px;
   text-decoration: none;
@@ -116,23 +176,15 @@ form {
 input {
   width: 100%;
   height: 100%;
-} 
-#optionIcon > span { 
-  background-color: #ff0;
-  height: 2px; 
-  width:30px;
-  display: block; 
-  margin-top:6px; 
-  margin-left:10px;
-} 
-.placeHolder{ 
-transform: translate(-50%,-50%);
-text-align: center; 
-left:50%; 
-top:50% ;
-position:absolute; 
-z-index:-1
+}
 
+.placeHolder {
+  transform: translate(-50%, -50%);
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  z-index: -1;
 }
 /* form,
 input,
