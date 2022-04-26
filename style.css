@@ -1,7 +1,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  border: 0px;
+  border: 0px; 
 }
 html {
   height: 100%;
@@ -19,67 +19,81 @@ body {
   min-height: 35px;
   top: 0;
   left: 0;
-  position: absolute; 
-  animation: 1.5s ease-out 0s 1 slideFromTop;  
+  position: fixed; 
+  animation: 1.5s ease-out 0s 1 slideFromTop;   
+  z-index:2;
 }   
 #topDiv > * { 
   float:left;  
-  margin-left:30px;
+  margin-left:30px; 
+  position:inherit; 
 } 
 #topDiv > :first-child { 
-  margin-left: 0 
+  margin-left: 60px;
+  z-index: 6;
 }
 #topDiv > p { 
   font-family: "Open Sans",  sans-serif; 
-  font-size: 20px;  
+  font-size: 20px;   
+  font-weight:300;
   display:block; 
-  color: #000000; 
+  color: #ff0; 
   top: 2px; 
   position:relative; 
-
+  z-index:inherit
 } 
+#optionIcon { 
+left:0; 
+top:0; 
+z-index:6; 
+position:fixed; 
+animation: 1.5s ease-out 0s 1 slideFromTop;   
+}  
+#optionIcon > :first-child { 
+ /* transform: rotate(45deg);*/
+}
 #optionIcon > span {
   background-color: #ff0;
   height: 2px;
   width: 30px;
   display: block;
-  margin-top: 6px;
-  margin-left: 10px;
+  margin-top: 7px;
+  margin-left: 10px; 
+  z-index:inherit; 
+  transition:0.6s; 
+  /* transform: rotate(-45deg); */
 } 
 #mainFirst {
-  position: absolute;
+  position: relative;
   top: 5%;
   animation: 1.5s ease 0s 1 slideFromLeft;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
+  text-align: center; 
   background-color: #00b469;
-  width: 100%;
-  height: 60%;
-  font-family: "Open Sans", "Montserrat", sans-serif;
+  min-width: 100%;
+  min-height: 60%;
+  font-family: "Open Sans", "Montserrat", sans-serif; 
+  z-index:1; 
+  font-size: clamp(0.5em, 1em, 1.5em);  
+  padding-top:2rem; 
+  padding-bottom:2rem;
 }
-/* Add all Responsive stuff here*/
+/* Add all Responsive stuff here 
 @media screen and (max-width: 1040px) {
+
   #mainFirst {
-    height: 65%;
-  }
-  #startbutton {
-    margin-top: 80px;
-  }
-  .bigTxt {
-    font-size: 5em;
+    font-size: 1rem;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 840px) {
   #mainFirst {
-    height: 75%;
-  }
-  .bigTxt {
-    font-size: 3.5em;
+    font-size: 0.75rem
   }
 }
-@media screen and (max-width: 500px) {
-}
+@media screen and (max-width: 600px) { 
+  #mainFirst {
+    font-size: 0.6rem
+  }
+} */
 @keyframes slideFromLeft {
   from {
     left: 0%;
@@ -92,10 +106,11 @@ body {
 }
 @keyframes slideFromTop {
   from { 
-top:-45px;
+top:-45px; 
+
   } 
-  top{ 
-    top:0;
+  to{ 
+    top:0; 
   }
 }
 #mainFirst > * {
@@ -103,13 +118,13 @@ top:-45px;
 }
 #startbutton {
   display: block;
-  position: absolute;
+  position: relative;
   width: 210px;
   height: 70px;
   font-size: 20px;
   transform: translateX(-50%);
-  left: 50%;
-  bottom: 100px;
+  left: 50%; 
+  margin-top:1.2rem
 }
 #mainOverlay {
   min-width: 100%;
@@ -185,6 +200,30 @@ input {
   top: 50%;
   position: absolute;
   z-index: -1;
+}  
+#navBar{ 
+width:0;  
+height:100%;
+position: absolute; 
+transition: 0.6s;  
+background-color: #00a5b4;  
+top:0; 
+left: 0;
+} 
+#navBar > :first-child { 
+  margin-top:40px; 
+  margin-bottom:-1px;
+}
+li > .navElement { 
+  width:100%;
+  min-height: 50px; 
+  transition: inherit;
+  display:block;  
+  z-index:inherit; 
+  border-top: 1px #000 solid;
+  border-bottom: 1px #000 solid; 
+  margin-bottom: -1px; 
+  margin-top:-1px; 
 }
 /* form,
 input,

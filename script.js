@@ -57,22 +57,40 @@ var ions = [
   ["Oxalate", "C2O4 -2"],
   ["Sulfate", "SO4 -2"],
   ["Phosphate", "PO4 -3"],
-]; 
-var ionQuestions = 16 
-var elementQuestions = 40 
-var option = document.getElementById("optionIcon")   
-var questionDisplay = document.getElementById("numOfQuestions") 
-questionDisplay.innerHTML = "Element Questions: " + elementQuestions  + " Ion Questions: " + ionQuestions 
+];
+var ionQuestions = 16;
+var elementQuestions = 40;
+var option = document.getElementById("optionIcon");
+var questionDisplay = document.getElementById("numOfQuestions");
+questionDisplay.innerHTML =
+ "Questions: " + elementQuestions + " Element Questions, " + ionQuestions + " Ion Questions";
 const randomNum = function getRandomNum(max) {
   return Math.floor(Math.random() * max);
 };
 var startbutton = document.getElementById("startbutton");
-var elementQuestions = document.getElementsByClassName("chemQuestions");
+var elementQuestions = document.getElementsByClassName("chemQuestions"); 
+
+function navBarDisplay() {  
+  var navBar = document.getElementById("navBar")
+  if(option.classList.contains("clicked")) { 
+    navBar.style.zIndex = 0;
+    navBar.style.width = 0; 
+    option.classList.remove("clicked")
+  } 
+  else {
+  document.getElementById("navBar").style.zIndex = 5;
+  document.getElementById("navBar").style.width = "300px"; 
+  option.classList.add("clicked")
+  }
+}
+option.addEventListener("click", navBarDisplay); 
+
+
 startbutton.addEventListener("click", function () {
-  document.getElementById("mainFirst").style.display = "none"; 
-  startbutton.style.display = "none"; 
- // getRandomQuestions();
-});   /*
+  document.getElementById("mainFirst").style.display = "none";
+  startbutton.style.display = "none";
+  // getRandomQuestions();
+}); /*
 function getRandomQuestions() {
   //make sure elements[randomNum(40)] or ion is not undefined
   // elementQuestions[i].innerHTML need this later
