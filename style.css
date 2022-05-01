@@ -73,11 +73,11 @@ animation: 1.5s ease-out 0s 1 slideFromTop;
   min-height: 60%;
   font-family: "Open Sans", "Montserrat", sans-serif; 
   z-index:1; 
-  font-size: clamp(0.5em, 1em, 1.5em);  
+  font-size: clamp(12px, 1em, 16px);  
   padding-top:2rem; 
   padding-bottom:2rem;
 }
-/* Add all Responsive stuff here 
+ /* Add all Responsive stuff here 
 @media screen and (max-width: 1040px) {
 
   #mainFirst {
@@ -89,7 +89,7 @@ animation: 1.5s ease-out 0s 1 slideFromTop;
     font-size: 0.75rem
   }
 }
-@media screen and (max-width: 600px) { 
+/* @media screen and (max-width: 600px) { 
   #mainFirst {
     font-size: 0.6rem
   }
@@ -201,15 +201,22 @@ input {
   position: absolute;
   z-index: -1;
 }  
-#navBar{ 
-width:0;  
+#navBar{   
+width:0; 
+left: -300px; 
+z-index:0;  
 height:100%;
 position: absolute; 
-transition: 0.6s;  
+transition: 0.8s;  
 background-color: #00a5b4;  
 top:0; 
-left: 0;
-} 
+display:block;
+}  
+#navBar[class ~= "clicked"] { 
+  z-index: 5; 
+  left: 0;  
+  width:300px; 
+}
 #navBar > :first-child { 
   margin-top:40px; 
   margin-bottom:-1px;
@@ -218,12 +225,33 @@ li > .navElement {
   width:100%;
   min-height: 50px; 
   transition: inherit;
-  display:block;  
+  display:inherit;  
   z-index:inherit; 
   border-top: 1px #000 solid;
   border-bottom: 1px #000 solid; 
   margin-bottom: -1px; 
-  margin-top:-1px; 
+  margin-top:-1px;  
+  color: #ff0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+  font-size: 1.2em;
+  text-align: center;  
+} 
+li > .navElement > i { 
+display:inline-block; 
+border: #ff0 solid; 
+border-width:0 1px 1px 0; 
+transform: rotate(45deg);  
+width: 8px; 
+height:8px;  
+background-color: transparent;  
+position:relative;    
+top:-3px;
+transition:0.8s
+} 
+li > .navElement > i[class~="clicked"] { 
+  transform: rotate(-135deg);  
+  top:2px;
 }
 /* form,
 input,

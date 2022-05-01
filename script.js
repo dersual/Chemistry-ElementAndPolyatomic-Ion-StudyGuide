@@ -63,28 +63,41 @@ var elementQuestions = 40;
 var option = document.getElementById("optionIcon");
 var questionDisplay = document.getElementById("numOfQuestions");
 questionDisplay.innerHTML =
- "Questions: " + elementQuestions + " Element Questions, " + ionQuestions + " Ion Questions";
+  "Questions: " +
+  elementQuestions +
+  " Element Questions, " +
+  ionQuestions +
+  " Ion Questions";
 const randomNum = function getRandomNum(max) {
   return Math.floor(Math.random() * max);
 };
 var startbutton = document.getElementById("startbutton");
-var elementQuestions = document.getElementsByClassName("chemQuestions"); 
+var elementQuestions = document.getElementsByClassName("chemQuestions");
+var navBarElement = document.querySelectorAll(".navElement");
 
-function navBarDisplay() {  
-  var navBar = document.getElementById("navBar")
-  if(option.classList.contains("clicked")) { 
-    navBar.style.zIndex = 0;
-    navBar.style.width = 0; 
-    option.classList.remove("clicked")
-  } 
-  else {
-  document.getElementById("navBar").style.zIndex = 5;
-  document.getElementById("navBar").style.width = "300px"; 
-  option.classList.add("clicked")
+function ifClicked(element) {
+  if (element.classList.contains("clicked")) {
+    element.classList.remove("clicked");
+  } else {
+    element.classList.add("clicked");
   }
+  
 }
-option.addEventListener("click", navBarDisplay); 
 
+function addClickEvents() {
+  option.addEventListener("click", function () {
+    ifClicked(document.getElementById("navBar"));
+  });
+  navBarElement.forEach((element) => { 
+    var arrayOfNavBarElements = [...navBarElement] 
+    var i = arrayOfNavBarElements.indexOf(element)
+    element.addEventListener("click", function () { 
+      var arrow = document.getElementsByClassName("arrow")[i]
+      ifClicked(arrow);
+    });
+  });
+}
+addClickEvents(); 
 
 startbutton.addEventListener("click", function () {
   document.getElementById("mainFirst").style.display = "none";
