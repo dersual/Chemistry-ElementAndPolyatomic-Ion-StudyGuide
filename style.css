@@ -253,38 +253,3 @@ li > .navElement > i[class~="clicked"] {
   transform: rotate(-135deg);  
   top:2px;
 }
-/* form,
-input,
-p,
-td,
-label {
-  font-size: 100%;
-  text-align: center;
-  font-family: "Times New Roman", serif;
-}
-table td {
-  border: 2.5px black solid;
-  height: 30px;
-  width: 180px;
-  background-color: #ffffff;
-}
-
-table {
-  border-spacing: 4px 8px;
-}
-p,
-.instructions {
-  text-align: left;
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-.columnLabel {
-  font-weight: 600;
-}
-.submitButton {
-  font-size: 22px;
-  padding: 16px 31px;
-  margin-bottom: 16px;
-}
-*/
