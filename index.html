@@ -20,11 +20,10 @@
     <script src="script.js" defer></script>
     <title>Chemistry</title>
   </head>
-  <body>  
-
+  <body>
     <div id="topDiv">
       <p id="numOfQuestions"></p>
-    </div> 
+    </div>
     <div id="optionIcon">
       <span></span>
       <span></span>
@@ -38,15 +37,53 @@
         left
       </h3>
     </div>
-    <button type="button" id="startbutton">Begin Studying</button>  
+    <button type="button" id="startbutton">Begin Studying</button>
 
     <div id="mainOverlay"></div>
     <div id="navBar">
       <ol>
-        <li><div class = "questionButton navElement">Questions  <i class = "arrow"></i> 
-        <div></div>
-        </div></li>
-        <li><div class = "timeButton navElement">Time       <i class = "arrow"></i></div></li>
+        <li>
+          <div class="questionButton navElement">
+            <p>Questions <i class="arrow"></i></p>
+            <div>
+              <form class="questionForm">
+                <div>
+                  <label>Element Questions: </label>
+                  <input
+                    class="questionInput"
+                    type="number"
+                    value="40"
+                    min="1"
+                    max="40"
+                  />
+                </div>
+                <div>
+                  <label>Polyatomic Questions: </label>
+                  <input
+                    class="questionInput"
+                    type="number"
+                    value="16"
+                    min="1"
+                    max="16"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeButton navElement">
+            <p>Time <i class="arrow"></i></p>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+              nunc mi, ornare et maximus quis, blandit sit amet tortor. Quisque
+              volutpat placerat tellus, at semper libero convallis quis. Fusce
+              et tristique urna, non feugiat justo. In hac habitasse platea
+              dictumst. Suspendisse molestie convallis sapien, eget accumsan
+              odio semper
+            </div>
+          </div>
+        </li>
       </ol>
     </div>
     <h1 class="placeHolder">Being reworked right now!</h1>

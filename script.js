@@ -58,8 +58,12 @@ var ions = [
   ["Sulfate", "SO4 -2"],
   ["Phosphate", "PO4 -3"],
 ];
-var ionQuestions = 16;
-var elementQuestions = 40;
+var ionQuestions = Number(
+  document.getElementsByClassName("questionInput")[1].value
+);
+var elementQuestions = Number(
+  document.getElementsByClassName("questionInput")[0].value
+);
 var option = document.getElementById("optionIcon");
 var questionDisplay = document.getElementById("numOfQuestions");
 questionDisplay.innerHTML =
@@ -75,29 +79,46 @@ var startbutton = document.getElementById("startbutton");
 var elementQuestions = document.getElementsByClassName("chemQuestions");
 var navBarElement = document.querySelectorAll(".navElement");
 
+[...document.getElementsByClassName("questionInput")].forEach((elements) => {
+  elements.addEventListener("change", function () {
+    ionQuestions = Number(
+      document.getElementsByClassName("questionInput")[1].value
+    );
+    elementQuestions = Number(
+      document.getElementsByClassName("questionInput")[0].value
+    );
+    questionDisplay.innerHTML =
+      "Questions: " +
+      elementQuestions +
+      " Element Questions, " +
+      ionQuestions +
+      " Ion Questions";
+  });
+});
+
 function ifClicked(element) {
   if (element.classList.contains("clicked")) {
     element.classList.remove("clicked");
   } else {
     element.classList.add("clicked");
   }
-  
 }
 
 function addClickEvents() {
   option.addEventListener("click", function () {
     ifClicked(document.getElementById("navBar"));
   });
-  navBarElement.forEach((element) => { 
-    var arrayOfNavBarElements = [...navBarElement] 
-    var i = arrayOfNavBarElements.indexOf(element)
-    element.addEventListener("click", function () { 
-      var arrow = document.getElementsByClassName("arrow")[i]
+  navBarElement.forEach((element) => {
+    var arrayOfNavBarElements = [...navBarElement];
+    var i = arrayOfNavBarElements.indexOf(element);
+    element.getElementsByTagName("p")[0].addEventListener("click", function () {
+      var arrow = document.getElementsByClassName("arrow")[i];
       ifClicked(arrow);
+      ifClicked(element.getElementsByTagName("div")[0]);
     });
   });
 }
-addClickEvents(); 
+addClickEvents();
 
 startbutton.addEventListener("click", function () {
   document.getElementById("mainFirst").style.display = "none";
