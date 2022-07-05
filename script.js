@@ -227,7 +227,8 @@ function test() {
   }
 }
 function retry() {
-  document.getElementById("question-container").innerHTML = "";
+  document.getElementById("question-container").innerHTML = ""; 
+  answerKey = []
   document.getElementById("retry-button").style.display = "none";
   document.getElementById("score").style.display = "none";
   getRandomQuestions();
