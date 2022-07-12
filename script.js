@@ -64,6 +64,15 @@ var numberOfElementQuestions = Number(document.getElementsByClassName("questionI
 var option = document.getElementById("optionIcon");
 var questionDisplay = document.getElementById("numOfQuestions");
 var answerKey = [];
+var minutes = document.getElementsByClassName("timeInput")[0].value;
+var seconds = document.getElementsByClassName("timeInput")[1].value;
+var totalTime = Number(seconds) + Number(minutes) * 60;
+var timer;
+
+document.getElementById("amount-of-time").innerHTML =
+  document.getElementsByClassName("timeInput")[0].value +
+  ":" +
+  document.getElementsByClassName("timeInput")[1].value;
 questionDisplay.innerHTML =
   "Questions: " +
   numberOfElementQuestions +
@@ -73,12 +82,21 @@ questionDisplay.innerHTML =
 const randomNum = function getRandomNum(max) {
   return Math.floor(Math.random() * max);
 };
+
 var startbutton = document.getElementById("startbutton");
 var elementQuestions = document.getElementsByClassName("chemQuestions");
 var navBarElement = document.querySelectorAll(".navElement");
 
+//input stuff
 [...document.getElementsByClassName("questionInput")].forEach((elements) => {
   elements.addEventListener("change", function () {
+    if (
+      Number(elements.max) < Number(elements.value) ||
+      Number(elements.min) > Number(elements.value) ||
+      Number.isInteger(Number(elements.value)) === false
+    ) {
+      elements.value = elements.max;
+    }
     numberOfIonQuestions = Number(document.getElementsByClassName("questionInput")[1].value);
     numberOfElementQuestions = Number(document.getElementsByClassName("questionInput")[0].value);
     questionDisplay.innerHTML =
@@ -87,6 +105,30 @@ var navBarElement = document.querySelectorAll(".navElement");
       " Element Questions, " +
       numberOfIonQuestions +
       " Ion Questions";
+  });
+});
+document.getElementById("seconds").addEventListener("change", function () {
+  if (Number(document.getElementById("seconds").value) < 10) {
+    document.getElementById("seconds").value =
+      "0" + Number(document.getElementById("seconds").value);
+  }
+});
+[...document.getElementsByClassName("timeInput")].forEach((elements) => {
+  elements.addEventListener("change", function () {
+    if (
+      Number(elements.max) < Number(elements.value) ||
+      Number(elements.min) > Number(elements.value) ||
+      Number.isInteger(Number(elements.value)) === false
+    ) {
+      elements.value = elements.max;
+    }
+    minutes = document.getElementsByClassName("timeInput")[0].value;
+    seconds = document.getElementsByClassName("timeInput")[1].value;
+    document.getElementById("amount-of-time").innerHTML =
+      document.getElementsByClassName("timeInput")[0].value +
+      ":" +
+      document.getElementsByClassName("timeInput")[1].value;
+    totalTime = Number(seconds) + Number(minutes) * 60;
   });
 });
 
@@ -200,6 +242,12 @@ function addQuestionsToPage(element, ion) {
       answerKey.push(ion[i][1]);
     }
   }
+  setTimer();
+  document.getElementById("checkAnswerButton").style.display = "block";
+  document.getElementById("displays").style.display = "none";
+  document.getElementById("timer").style.display = "block";
+  document.getElementById("optionIcon").style.display = "none";
+  document.getElementById("topDiv").style.justifyContent = "center";
   return console.log(element, ion, answerKey);
 }
 
@@ -215,21 +263,58 @@ function getAndCheckAnswers() {
       document.getElementsByClassName("question")[i].classList.add("wrong");
     }
   }
+  clearInterval(timer);
+  document.getElementById("topDiv").style.justifyContent = "normal";
+  document.getElementById("displays").style.display = "flex";
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("optionIcon").style.display = "block";
   document.getElementById("retry-button").style.display = "block";
   document.getElementById("score").style.display = "inline";
+  document.getElementById("checkAnswerButton").style.display = "none";
   document.getElementById("score").innerHTML =
     "Score: " + Math.floor((correct / answerKey.length) * 100) + "%";
+}  
+
+function retry() {
+  document.getElementById("question-container").innerHTML = "";
+  answerKey = [];
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  document.getElementById("retry-button").style.display = "none";
+  document.getElementById("score").style.display = "none";
+  getRandomQuestions();
 }
+function setTimer() {
+  totalTime = Number(seconds) + Number(minutes) * 60;
+  displayTime();
+  timer = setInterval(countDown, 1000);
+}
+function countDown() {
+  totalTime--;
+  displayTime();
+  if (totalTime === 0) {
+    getAndCheckAnswers();
+  }
+}
+function displayTime() {
+  var min = Math.floor(totalTime / 60);
+  var sec = totalTime % 60;
+  if (sec < 10) {
+    sec = "0" + sec;
+  }
+  document.getElementById("timer").innerHTML = min + ":" + sec;
+}
+/* testing stuff 
+function getPos() {
+  var rect = document.getElementsByClassName("timeIcon")[0].getBoundingClientRect();
+  var rect1 = document.getElementById("amount-of-time").getBoundingClientRect();
+  var rect2 = document.getElementById("numOfQuestions").getBoundingClientRect();
+  console.log(rect.top, rect.right, rect.bottom, rect.left);
+  console.log(rect1.top, rect1.right, rect1.bottom, rect1.left);
+  console.log(rect2.top, rect2.right, rect2.bottom, rect2.left);
+} 
 function test() {
   var answers = Array.from(document.getElementsByClassName("answer"));
   for (var i = 0; i < answerKey.length; i++) {
     answers[i].value = answerKey[i];
   }
-}
-function retry() {
-  document.getElementById("question-container").innerHTML = ""; 
-  answerKey = []
-  document.getElementById("retry-button").style.display = "none";
-  document.getElementById("score").style.display = "none";
-  getRandomQuestions();
-}
+} */
