@@ -403,10 +403,11 @@ box-shadow: -1px -2px 28px 1px rgba(0,0,0,0.31);
 }
 .parent {
   width: clamp(100px, 25%, 420px); 
-  animation: fadein 0.8s;
+  animation: fadein 0.8s; 
+ 
 }
 .answer,
-.question {
+.question, .correction {
   font-family: "Open Sans", "Montserrat", sans-serif;
   color: #00b469;
   font-size: clamp(10px, 2vw, 18px);
@@ -433,7 +434,8 @@ box-shadow: -1px -2px 28px 1px rgba(0,0,0,0.31);
 }
 .question + .wrong {
   border-color: #b4004b;
-}
+} 
+
 #retry-button {
   display: none;
 }

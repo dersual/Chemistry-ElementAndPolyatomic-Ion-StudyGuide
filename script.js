@@ -248,7 +248,6 @@ function addQuestionsToPage(element, ion) {
   document.getElementById("timer").style.display = "block";
   document.getElementById("optionIcon").style.display = "none";
   document.getElementById("topDiv").style.justifyContent = "center";
-  return console.log(element, ion, answerKey);
 }
 
 function getAndCheckAnswers() {
@@ -259,8 +258,12 @@ function getAndCheckAnswers() {
     if (answerKey[i] == answers[i].value) {
       correct++;
     } else {
+      var correction = document.createElement("span") 
+      correction.classList.add("correction")
       answers[i].classList.add("wrong");
-      document.getElementsByClassName("question")[i].classList.add("wrong");
+      document.getElementsByClassName("question")[i].classList.add("wrong");  
+      document.getElementsByClassName("parent")[i].appendChild(correction) 
+      correction.innerHTML = "Answer: " + answerKey[i]
     }
   }
   clearInterval(timer);
