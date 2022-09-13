@@ -176,8 +176,8 @@ function getRandomQuestions(elementQuestions, ionQuestions, elementArr, ionArr) 
     elementQuestions.length !== numberOfElementQuestions ||
     ionQuestions.length !== numberOfIonQuestions
   ) {
-    var element = elementArr[randomNum(elementArr.length - 1)];
-    var ion = ionArr[randomNum(ionArr.length - 1)];
+    var element = elementArr[randomNum(elementArr.length)];
+    var ion = ionArr[randomNum(ionArr.length)];
     if (element !== undefined && elementQuestions.length !== numberOfElementQuestions) {
       elementQuestions.push(element);
     }
