@@ -64,7 +64,7 @@
 |Bicarbonate|     HCO3 -1     |
 |   Bromate|      BrO3 -1     |
 |    Chlorate   |     ClO3 -1     |
-|     Cyanide    |     CN =1     |
+|     Cyanide    |     CN -1     |
 |  Hydroxide  |     OH -1    |
 |    Iodate   |     IO3 -1     |
 |Nitrate  |      NO3 -1     |
